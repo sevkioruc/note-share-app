@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block speacialcss %}
+<link rel="stylesheet" href="/static/login.css">
+{% endblock%}
+
+
+{% block content %}
+<form class="form-signin" action="{{url_for('login')}}" method="post">
+  <center><img src="/static/images/linux.png" width="64" height="64"><br>
+  <label class="header">Login</label></center>
+  <dd><input type="text" name="username" class="form-control" placeholder="Username"></dd>
+  <input type="password" class="form-control" name="password" placeholder="Password" required="">
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Login
+    <i class="fas fa-key"></i> 
+  </button>
+</form>
+
+{% endblock%}

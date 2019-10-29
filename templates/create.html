@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Let's Create A Note!{% endblock %}
+
+{% block speacialcss %}
+<link href="{{ url_for('static',filename='create.css') }}" rel="stylesheet">
+{% endblock%}
+
+
+{% block content %}
+
+<form class="selector-for-some-widget" action="{{url_for('create')}}" method="post">
+  <label class="header">Create Note</label>
+
+  <textarea class="form-control" name="content" placeholder="Write your notes here" rows="10" col="40"></textarea>
+
+  <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="popover"
+    title="Create your own notes and save them with full of security">Create
+    <i class="fas fa-plus-circle"></i>
+  </button>
+
+</form>
+
+{% endblock %}

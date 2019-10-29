@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}Notes{% endblock %}
+
+{% block speacialcss %}
+  <link rel="stylesheet" href="/static/notes.css">
+{% endblock%}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-4 test">
+      <ul class="nav bd-sidenav">
+        <li>
+          {% for note in context.notes %}
+            <a class="list-group-item list-group-item-action noteclass"
+              href="{{ url_for('getNotes',note_id=note.id) }}">{{note.content|markdown}}
+            </a>
+            <small>Date : {{ note.created_date.strftime('%d.%m.%Y %H:%M') }}</small>
+          {% endfor %}
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-4 ">
+      {% if context.note %}
+        <form class="selector-for-some-widget" method="post">
+          <textarea class="form-control" name="content" id="content" rows="10" cols="40">{{ context.note.content }}</textarea>
+          <button class="btn btn-lg btn-primary" id="save" formaction="{{ url_for('edit', note_id=context.note.id) }}" type="submit"
+            value="save"> Save</button>
+          <button class="btn btn-lg btn-primary" id="delete" formaction="{{ url_for('delete_entry', note_id=context.note.id) }}"
+            type="submit" value="delete">Delete</button>
+        </form>
+      {% endif %}
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-4 markdown" id="preview">
+      <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    </div>
+    
+  </div>
+</div>
+{% endblock %}
+
+{% block speacialjs %}
+<script>
+$(document).ready(function () {
+  var textcontent = document.getElementById('content');
+  document.getElementById('preview').innerHTML = marked(textcontent.value);
+});
+
+var timeoutId;
+$('#content').on('input propertychange change', function() {
+  clearTimeout(timeoutId);
+  timeoutId = setTimeout(function() {
+    var text = $("#content");
+    {% if context.note %}
+      $.ajax({
+      type: "POST",
+      url: "{{ url_for('edit',note_id=context.note.id) }}",
+      data: text,
+      });
+    {% endif %}
+    },1000);
+  });
+
+var textcontent = document.getElementById('content');
+textcontent.onkeyup = textcontent.onkeypress = function () {
+  document.getElementById('preview').innerHTML = marked(this.value);
+}
+</script>
+{% endblock%}
+

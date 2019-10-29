@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Homepage{% endblock %}
+
+{% block speacialcss %}
+  <link rel="stylesheet" href="/static/edit.css">
+{% endblock%}
+
+{% block content %}
+
+<h2 style="text-align:center;"> Edit Notes </h2>
+
+<div>
+
+  <form class="selector-for-some-widget" method="post">
+
+<div>
+  <form class="selector-for-some-widget" method="post">
+    <textarea class="form-control" name="content" rows="10" cols="40">{{note.content}}</textarea>
+    <button class="btn btn-lg btn-primary" formaction="{{ url_for('edit', note_id=note.id) }}" type="submit"
+      value="save"> Save</button>
+    <button class="btn btn-lg btn-primary" formaction="{{ url_for('delete_entry', note_id=note.id) }}" type="submit"
+      value="delete">Delete</button>
+
+  </form>
+
+</div>
+
+
+{% endblock%}

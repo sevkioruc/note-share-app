@@ -1,0 +1,35 @@
+.container li a{
+  border: 1px solid lightgray;
+  width: 250px;
+  height: 50px;
+}
+
+.container{
+  float: left;
+}
+
+.markdown{
+  width: 400px;
+  border: 1px solid gray;
+  overflow-y: auto;
+  height:250px;
+}
+
+#preview h1{
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.btn{
+  margin-top: 10px;
+}
+
+.noteclass h1 {
+  font-size: 1.5rem;
+}
+.noteclass li {
+  display: none;
+}
+.noteclass p {
+  display: none;
+}

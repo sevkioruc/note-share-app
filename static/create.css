@@ -1,0 +1,17 @@
+
+
+.header{
+    
+    padding-left: 350px;
+    font-size: 35px;
+}
+.selector-for-some-widget {
+    
+    box-sizing: content-box;
+    height: 100%;
+    width: 900px;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 55px;
+  }

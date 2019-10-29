@@ -1,0 +1,22 @@
+.display,
+.battery {
+    display: inline-block;
+}
+div {
+  text-align: center;
+}
+
+form { 
+  display: inline; 
+}
+
+.selector-for-some-widget {
+  
+  box-sizing: content-box;
+  height: 100%;
+  width: 900px;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 55px;
+}

@@ -1,0 +1,23 @@
+.header{
+  text-align: center ;
+}
+
+#aboutButton{
+  float: right;
+  margin-top: 5px;
+}
+
+.image{
+  overflow: hidden;
+  display: table;
+  width:480px;
+  height: 220px;
+  position: relative;
+  text-align:center;
+  margin:0 auto;
+  margin-top: 50px;
+}
+
+.dialog {
+  margin-top: 70px;
+}
